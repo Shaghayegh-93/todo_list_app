@@ -22,10 +22,14 @@ const Todo = ({ todo, index, onToggleTodo, onDelete }) => {
             {todo.text}
           </p>
         </div>
-        <div className="flex items-center justify-between w-[80px]">
-          <BsFillCheckCircleFill className="text-green-600" />
-          <MdModeEditOutline />
-          <RiDeleteBin5Fill className="text-red-600" onClick={onDelete} />
+        <div className="flex items-center   max-w-[100px] ">
+          {todo.isCompleted ? (
+            <BsFillCheckCircleFill className="text-green-600  " />
+          ) : (
+            ""
+          )}
+          <MdModeEditOutline className="mr-1 ml-2" />
+          <RiDeleteBin5Fill className="text-red-600 " onClick={onDelete} />
         </div>
       </div>
     </div>
