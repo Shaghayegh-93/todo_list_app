@@ -3,20 +3,20 @@ import { BsFillCheckCircleFill } from "react-icons/bs";
 import { RiDeleteBin5Fill } from "react-icons/ri";
 import { MdModeEditOutline } from "react-icons/md";
 
-const Todo = () => {
+const Todo = ({ todo, index }) => {
   return (
-    <div className="flex flex-col items-center">
+    <div className="flex flex-col items-center my-2">
       <div className="bg-slate-600 p-2 w-full md:w-[90%] rounded-md text-white flex items-center justify-between">
         <div className="flex justify-between items-center">
           <span className="rounded-full felx items-center justify-center w-[26px] h-[26px] mr-2  border">
-            1
+            {index + 1}
           </span>
-          <p>task 1</p>
+          <p className="text-white">{todo.text}</p>
         </div>
-        <div className="flex">
-          <BsFillCheckCircleFill />
+        <div className="flex items-center justify-between w-[80px]">
+          <BsFillCheckCircleFill className="text-green-600" />
           <MdModeEditOutline />
-          <RiDeleteBin5Fill />
+          <RiDeleteBin5Fill className="text-red-600" />
         </div>
       </div>
     </div>
