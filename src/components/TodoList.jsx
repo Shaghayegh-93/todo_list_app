@@ -1,7 +1,7 @@
 import React from "react";
 import Todo from "./Todo";
 
-const TodoList = ({ todoList, toggleTodo }) => {
+const TodoList = ({ todoList, toggleTodo, onDelete }) => {
   console.log(todoList);
   return (
     <div className="">
@@ -11,7 +11,8 @@ const TodoList = ({ todoList, toggleTodo }) => {
             todo={todo}
             key={todo.id}
             index={index}
-            onToggleTodo={()=>toggleTodo(todo.id)}
+            onToggleTodo={() => toggleTodo(todo.id)}
+            onDelete={() => onDelete(todo.id)}
           />
         );
       })}
