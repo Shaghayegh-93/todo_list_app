@@ -3,15 +3,24 @@ import { BsFillCheckCircleFill } from "react-icons/bs";
 import { RiDeleteBin5Fill } from "react-icons/ri";
 import { MdModeEditOutline } from "react-icons/md";
 
-const Todo = ({ todo, index }) => {
+const Todo = ({ todo, index, onToggleTodo }) => {
   return (
     <div className="flex flex-col items-center my-2">
-      <div className="bg-slate-600 p-2 w-full md:w-[90%] rounded-md text-white flex items-center justify-between">
+      <div
+        onClick={onToggleTodo}
+        className="bg-slate-600 p-2 w-full md:w-[90%] rounded-md text-white flex items-center justify-between"
+      >
         <div className="flex justify-between items-center">
           <span className="rounded-full felx items-center justify-center w-[26px] h-[26px] mr-2  border">
             {index + 1}
           </span>
-          <p className="text-white">{todo.text}</p>
+          <p
+            className={`text-white ${
+              todo.isCompleted ? "text-white line-through" : "text-white"
+            }`}
+          >
+            {todo.text}
+          </p>
         </div>
         <div className="flex items-center justify-between w-[80px]">
           <BsFillCheckCircleFill className="text-green-600" />
