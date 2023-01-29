@@ -8,10 +8,22 @@ function App() {
   const [todoList, setTodoList] = useState([]);
 
   const addTodoHandler = (todo) => {
-    const newTodo = { text: todo, id: Math.floor(Math.random() * 1000) };
+    const newTodo = {
+      text: todo,
+      id: Math.floor(Math.random() * 1000),
+      isCompleted: false,
+    };
 
     setTodoList([...todoList, newTodo]);
     console.log("todoList:", todoList);
+  };
+  const toggleTodo = (id) => {
+    const index = todoList.findIndex((todo) => todo.id === id);
+    const selectedTodo = { ...todoList[index] };
+    selectedTodo.isCompleted = !selectedTodo.isCompleted;
+    const updatedTodo = [...todoList];
+    updatedTodo[index] = selectedTodo;
+    setTodoList(updatedTodo);
   };
 
   return (
@@ -20,7 +32,7 @@ function App() {
         <Toaster position="top-right" />
         <h1 className="text-white  text-3xl mb-9">Todo List App</h1>
         <TodoForm addTodoHandler={addTodoHandler} />
-        <TodoList todoList={todoList} />
+        <TodoList todoList={todoList} toggleTodo={toggleTodo} />
       </div>
     </div>
   );
