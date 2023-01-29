@@ -3,14 +3,14 @@ import { BsFillCheckCircleFill } from "react-icons/bs";
 import { RiDeleteBin5Fill } from "react-icons/ri";
 import { MdModeEditOutline } from "react-icons/md";
 
-const Todo = ({ todo, index, onToggleTodo }) => {
+const Todo = ({ todo, index, onToggleTodo, onDelete }) => {
   return (
     <div className="flex flex-col items-center my-2">
-      <div
-        onClick={onToggleTodo}
-        className="bg-slate-600 p-2 w-full md:w-[90%] rounded-md text-white flex items-center justify-between"
-      >
-        <div className="flex justify-between items-center">
+      <div className="bg-slate-600 p-2 w-full md:w-[90%] rounded-md text-white flex items-center justify-between">
+        <div
+          className="flex justify-between items-center"
+          onClick={onToggleTodo}
+        >
           <span className="rounded-full felx items-center justify-center w-[26px] h-[26px] mr-2  border">
             {index + 1}
           </span>
@@ -25,7 +25,7 @@ const Todo = ({ todo, index, onToggleTodo }) => {
         <div className="flex items-center justify-between w-[80px]">
           <BsFillCheckCircleFill className="text-green-600" />
           <MdModeEditOutline />
-          <RiDeleteBin5Fill className="text-red-600" />
+          <RiDeleteBin5Fill className="text-red-600" onClick={onDelete} />
         </div>
       </div>
     </div>
