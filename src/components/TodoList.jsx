@@ -2,7 +2,6 @@ import React from "react";
 import Todo from "./Todo";
 
 const TodoList = ({ todoList, toggleTodo, onDelete }) => {
-  console.log(todoList);
   return (
     <div className="">
       {todoList.map((todo, index) => {
