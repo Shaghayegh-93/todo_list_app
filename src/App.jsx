@@ -6,6 +6,7 @@ import { useState } from "react";
 
 function App() {
   const [todoList, setTodoList] = useState([]);
+  const [edit, setEdit] = useState({ id: null, text: "", isCompleted: false });
 
   const addTodoHandler = (todo) => {
     const newTodo = {
@@ -15,6 +16,7 @@ function App() {
     };
 
     setTodoList([...todoList, newTodo]);
+    
     console.log("todoList:", todoList);
   };
   const toggleTodo = (id) => {
@@ -36,7 +38,7 @@ function App() {
       <div className="  text-center max-w-[900px]   h-full m-auto p-4">
         <Toaster position="top-right" />
         <h1 className="text-white  text-3xl mb-9">Todo List App</h1>
-        <TodoForm addTodoHandler={addTodoHandler} />
+        <TodoForm addTodoHandler={addTodoHandler} edit={edit} setEdit={setEdit} />
         <TodoList
           todoList={todoList}
           toggleTodo={toggleTodo}
