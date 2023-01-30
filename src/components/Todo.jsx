@@ -28,7 +28,9 @@ const Todo = ({ todo, index, onToggleTodo, onDelete }) => {
           ) : (
             ""
           )}
-          <MdModeEditOutline className="mr-1 ml-2" />
+          <MdModeEditOutline
+            className="mr-1 ml-2"
+          />
           <RiDeleteBin5Fill className="text-red-600 " onClick={onDelete} />
         </div>
       </div>
