@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { toast } from "react-hot-toast";
 
-const TodoForm = ({ addTodoHandler }) => {
+const TodoForm = ({ addTodoHandler,edit,setEdit }) => {
   const [todoInput, setTodoInput] = useState("");
   const changeHandler = (e) => {
     setTodoInput(e.target.value);
@@ -9,7 +9,7 @@ const TodoForm = ({ addTodoHandler }) => {
   const submitHandler = (e) => {
     e.preventDefault();
     if (!todoInput) {
-      toast.apply("hiiii");
+      toast.success("hiiii");
       return;
     }
     addTodoHandler(todoInput);
@@ -18,6 +18,7 @@ const TodoForm = ({ addTodoHandler }) => {
   return (
     <form onSubmit={submitHandler} className="">
       <div className=" grid grid-cols-4 md:w-[90%]  m-auto  mb-4">
+        
         <input
           type="text"
           placeholder="Add Todo..."
