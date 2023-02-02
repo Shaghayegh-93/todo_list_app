@@ -1,6 +1,12 @@
 import React, { useState } from "react";
 
-const TodoForm = ({ changeHandler, submitHandler, todoInput }) => {
+const TodoForm = ({
+  changeHandler,
+  submitHandler,
+  todoInput,
+  edit,
+  setEdit,
+}) => {
   return (
     <form onSubmit={submitHandler} className="">
       <div className=" grid grid-cols-4 md:w-[90%]  m-auto  mb-4">
