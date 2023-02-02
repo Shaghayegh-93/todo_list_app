@@ -3,7 +3,7 @@ import { BsFillCheckCircleFill } from "react-icons/bs";
 import { RiDeleteBin5Fill } from "react-icons/ri";
 import { MdModeEditOutline } from "react-icons/md";
 
-const Todo = ({ todo, index, onToggleTodo, onDelete, onEdit }) => {
+const Todo = ({ todo, index, onToggleTodo, onDelete, onEdit  }) => {
   return (
     <div className="flex flex-col items-center my-2">
       <div className="bg-slate-600 p-2 w-full md:w-[90%] rounded-md text-white flex items-center justify-between">
@@ -28,7 +28,7 @@ const Todo = ({ todo, index, onToggleTodo, onDelete, onEdit }) => {
           ) : (
             ""
           )}
-          <MdModeEditOutline className="mr-1 ml-2" onClick={onEdit} />
+          <MdModeEditOutline className="mr-1 ml-2 cursor-pointer" onClick={onEdit} />
           <RiDeleteBin5Fill className="text-red-600 " onClick={onDelete} />
         </div>
       </div>
