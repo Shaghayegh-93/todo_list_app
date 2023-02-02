@@ -12,8 +12,12 @@ function App() {
     text: "",
     isCompleted: false,
   });
+  console.log("edit", edit);
 
   const changeHandler = (e) => {
+    // if (edit.id) {
+    //   setTodoInput(edit.text);
+    // }
     setTodoInput(e.target.value);
   };
   const submitHandler = (e) => {
@@ -27,14 +31,6 @@ function App() {
   };
 
   const addTodoHandler = (todo) => {
-    // if (edit.id) {
-    //   const index = todoList.findIndex((todo) => todo.id === id);
-    //   const selectedTodo = { ...todoList[index] };
-    //   todo.text = selectedTodo.text;
-    //   const updatedTodo = [...todoList];
-    //   updatedTodo[index] = selectedTodo;
-    //   setTodoList(updatedTodo);
-    // }
     const newTodo = {
       text: todo,
       id: Math.floor(Math.random() * 1000),
@@ -58,23 +54,48 @@ function App() {
   };
 
   return (
-    <div className=" bg-slate-800 h-screen  w-full">
-      <div className="  text-center max-w-[900px]   h-full m-auto p-4">
-        <Toaster position="top-right" />
-        <h1 className="text-white  text-3xl mb-9">Todo List App</h1>
-        <TodoForm
-          changeHandler={changeHandler}
-          submitHandler={submitHandler}
-          todoInput={todoInput}
-        />
-        <TodoList
-          todoList={todoList}
-          toggleTodo={toggleTodo}
-          onDelete={onDelete}
-          setEdit={setEdit}
-        />
-      </div>
-    </div>
+    <>
+      {edit.id ? (
+        <div className=" bg-slate-800 h-screen  w-full">
+          <div className="  text-center max-w-[900px]   h-full m-auto p-4">
+            <Toaster position="top-right" />
+            <h1 className="text-white  text-3xl mb-9">Todo List App</h1>
+            <TodoForm
+              changeHandler={changeHandler}
+              submitHandler={submitHandler}
+              todoInput={edit.text}
+              // edit={edit}
+              // setEdit={setEdit}
+            />
+            <TodoList
+              todoList={todoList}
+              toggleTodo={toggleTodo}
+              onDelete={onDelete}
+              setEdit={setEdit}
+            />
+          </div>
+        </div>
+      ) : (
+        <div className=" bg-slate-800 h-screen  w-full">
+          <div className="  text-center max-w-[900px]   h-full m-auto p-4">
+            <Toaster position="top-right" />
+            <h1 className="text-white  text-3xl mb-9">Todo List App</h1>
+            <TodoForm
+              changeHandler={changeHandler}
+              submitHandler={submitHandler}
+              todoInput={todoInput}
+            />
+            <TodoList
+              todoList={todoList}
+              toggleTodo={toggleTodo}
+              onDelete={onDelete}
+              setEdit={setEdit}
+            />
+          </div>
+        </div>
+      )}
+      );
+    </>
   );
 }
 
