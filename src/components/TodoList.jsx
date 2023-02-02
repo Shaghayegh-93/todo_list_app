@@ -12,7 +12,7 @@ const TodoList = ({ todoList, toggleTodo, onDelete, setEdit }) => {
             index={index}
             onToggleTodo={() => toggleTodo(todo.id)}
             onDelete={() => onDelete(todo.id)}
-            onEdit={setEdit(todo)}
+            onEdit={()=>setEdit(todo)}
           />
         );
       })}
