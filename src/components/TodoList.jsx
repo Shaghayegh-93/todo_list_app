@@ -1,7 +1,13 @@
 import React from "react";
 import Todo from "./Todo";
 
-const TodoList = ({ todoList, toggleTodo, onDelete, setEdit }) => {
+const TodoList = ({
+  todoList,
+  toggleTodo,
+  onDelete,
+  setEdit,
+}) => {
+
   return (
     <div className="">
       {todoList.map((todo, index) => {
@@ -12,7 +18,7 @@ const TodoList = ({ todoList, toggleTodo, onDelete, setEdit }) => {
             index={index}
             onToggleTodo={() => toggleTodo(todo.id)}
             onDelete={() => onDelete(todo.id)}
-            onEdit={()=>setEdit(todo)}
+            onEdit={() => setEdit(todo)}
           />
         );
       })}
