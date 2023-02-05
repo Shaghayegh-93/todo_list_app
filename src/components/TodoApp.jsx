@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import { toast, Toaster } from "react-hot-toast";
 import { useState } from "react";
 import TodoForm from "./TodoForm";
 import TodoList from "./TodoList";
@@ -18,10 +17,10 @@ const TodoApp = () => {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    // if (!todoInput) {
-    //   toast.success("hiiii");
-    //   return;
-    // }
+    if (!todoInput) {
+      // toast.custom(<div className="bg-withe text-white">Hello World</div>);
+      return;
+    }
     if (edit.id) {
       const index = todoList.findIndex((todo) => todo.id === edit.id);
       const selectedTodo = { ...todoList[index] };
@@ -29,10 +28,9 @@ const TodoApp = () => {
       const updatedTodo = [...todoList];
       updatedTodo[index] = selectedTodo;
       setTodoList(updatedTodo);
-      setEdit({id:null,text:""})
+      setEdit({ id: null, text: "" });
       return;
-    }else
-    addTodoHandler(todoInput);
+    } else addTodoHandler(todoInput);
     setTodoInput("");
   };
   const addTodoHandler = (todo) => {
@@ -69,7 +67,6 @@ const TodoApp = () => {
   return (
     <div className=" bg-slate-800 h-screen  w-full">
       <div className="  text-center max-w-[900px]   h-full m-auto p-4">
-        <Toaster position="top-right" />
         <h1 className="text-white  text-3xl mb-9">Todo List App</h1>
         <TodoForm
           changeHandler={changeHandler}
