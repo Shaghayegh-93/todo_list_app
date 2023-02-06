@@ -16,7 +16,6 @@ const TodoApp = () => {
   }, [edit]);
 
   useEffect(() => {
-    console.log("statussss", status);
     filterHandler(status);
   }, [todoList, status]);
 
@@ -66,9 +65,7 @@ const TodoApp = () => {
     setTodoList(filteredTodo);
   };
 
-  // const filterChangeHandler=()=>{
-  //   setStatus
-  // }
+ 
   const filterHandler = (status) => {
     switch (status) {
       case "all":
@@ -108,7 +105,6 @@ const TodoApp = () => {
           todoInput={todoInput}
           edit={edit}
           status={status}
-          setStatus={setStatus}
           filterChangeHandler={filterChangeHandler}
         />
         <TodoList
