@@ -3,7 +3,7 @@ import React from "react";
 const TodoForm = ({ changeHandler, submitHandler, todoInput, edit }) => {
   return (
     <form onSubmit={submitHandler} className="">
-      <todo div className=" grid grid-cols-3  md:w-[90%]  m-auto  mb-4 md:grid-cols-5">
+      <div className=" grid grid-cols-3  md:w-[90%]  m-auto  mb-4 md:grid-cols-5">
         <input
           type="text"
           placeholder="Add Todo..."
@@ -32,7 +32,7 @@ const TodoForm = ({ changeHandler, submitHandler, todoInput, edit }) => {
             <option value="deleted">deleted</option>
           </select>
         </div>
-      </todo>
+      </div>
     </form>
   );
 };
