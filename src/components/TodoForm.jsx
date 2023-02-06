@@ -1,6 +1,14 @@
 import React from "react";
 
-const TodoForm = ({ changeHandler, submitHandler, todoInput, edit }) => {
+const TodoForm = ({
+  changeHandler,
+  submitHandler,
+  todoInput,
+  edit,
+  status,
+  setStatus,
+  filterChangeHandler,
+}) => {
   return (
     <form onSubmit={submitHandler} className="">
       <div className=" grid grid-cols-3  md:w-[90%]  m-auto  mb-4 md:grid-cols-5">
@@ -26,10 +34,12 @@ const TodoForm = ({ changeHandler, submitHandler, todoInput, edit }) => {
             className="hidden md:inline-block bg-green-700 p-2 rounded-md  ml-4  text-white w-auto "
             name=""
             id=""
+            value={status}
+            onChange={filterChangeHandler}
           >
-            <option value="select">select</option>
+            <option value="all">all</option>
             <option value="completed">completed</option>
-            <option value="deleted">deleted</option>
+            <option value="uncompleted">uncompleted</option>
           </select>
         </div>
       </div>
