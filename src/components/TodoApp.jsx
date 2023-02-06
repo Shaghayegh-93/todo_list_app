@@ -8,9 +8,17 @@ const TodoApp = () => {
   const [todoList, setTodoList] = useState([]);
   const [todoInput, setTodoInput] = useState("");
   const [edit, setEdit] = useState({ id: null, text: "", isCompleted: false });
+  const [status, setStatus] = useState("all");
+  const [filterTodoList, setFilterTodoList] = useState([]);
+  console.log("status", status);
   useEffect(() => {
     edit.id ? setTodoInput(edit.text) : setTodoInput("");
   }, [edit]);
+
+  useEffect(() => {
+    console.log("statussss", status);
+    filterHandler(status);
+  }, [todoList, status]);
 
   const changeHandler = (e) => {
     setTodoInput(e.target.value);
@@ -58,6 +66,29 @@ const TodoApp = () => {
     setTodoList(filteredTodo);
   };
 
+  // const filterChangeHandler=()=>{
+  //   setStatus
+  // }
+  const filterHandler = (status) => {
+    switch (status) {
+      case "all":
+        setFilterTodoList(todoList);
+        break;
+      case "completed":
+        setFilterTodoList(todoList.filter((todo) => todo.isCompleted));
+        break;
+      case "uncompleted":
+        setFilterTodoList(todoList.filter((todo) => !todo.isCompleted));
+        break;
+      default:
+        setFilterTodoList(todoList);
+        break;
+    }
+  };
+  const filterChangeHandler = (e) => {
+    setStatus(e.target.value);
+  };
+
   useEffect(() => {
     const saveTodoList = JSON.parse(localStorage.getItem("todoList"));
     if (saveTodoList.length !== 0) setTodoList(saveTodoList);
@@ -76,9 +107,12 @@ const TodoApp = () => {
           submitHandler={submitHandler}
           todoInput={todoInput}
           edit={edit}
+          status={status}
+          setStatus={setStatus}
+          filterChangeHandler={filterChangeHandler}
         />
         <TodoList
-          todoList={todoList}
+          todoList={filterTodoList}
           toggleTodo={toggleTodo}
           onDelete={onDelete}
           setEdit={setEdit}
