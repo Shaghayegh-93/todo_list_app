@@ -58,6 +58,15 @@ const TodoApp = () => {
     setTodoList(filteredTodo);
   };
 
+  useEffect(() => {
+    const saveTodoList = JSON.parse(localStorage.getItem("todoList"));
+    if (saveTodoList.length !== 0) setTodoList(saveTodoList);
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("todoList", JSON.stringify(todoList));
+  }, [todoList]);
+
   return (
     <div className=" bg-slate-800 h-screen  w-full">
       <div className="  text-center max-w-[900px]   h-full m-auto p-4">
