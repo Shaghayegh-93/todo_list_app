@@ -6,7 +6,6 @@ const TodoForm = ({
   todoInput,
   edit,
   status,
-  setStatus,
   filterChangeHandler,
 }) => {
   return (
@@ -31,15 +30,15 @@ const TodoForm = ({
             {edit.id ? "Edit" : " Add task"}
           </button>
           <select
-            className="hidden md:inline-block bg-green-700 p-2 rounded-md  ml-4  text-white w-auto "
+            className="hidden md:inline-block bg-green-700 p-2 rounded-md  ml-4  text-white w-auto outline-none "
             name=""
             id=""
             value={status}
             onChange={filterChangeHandler}
           >
-            <option value="all">all</option>
-            <option value="completed">completed</option>
-            <option value="uncompleted">uncompleted</option>
+            <option value="all ">All</option>
+            <option value="completed">Completed</option>
+            <option value="uncompleted">Uncompleted</option>
           </select>
         </div>
       </div>
