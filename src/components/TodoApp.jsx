@@ -14,9 +14,9 @@ const TodoApp = () => {
     edit.id ? setTodoInput(edit.text) : setTodoInput("");
   }, [edit]);
 
-  useEffect(() => {
-    filterHandler(status);
-  }, [todoList, status]);
+  // useEffect(() => {
+  //   filterHandler(status);
+  // }, [todoList, status]);
 
   const changeHandler = (e) => {
     setTodoInput(e.target.value);
@@ -64,25 +64,25 @@ const TodoApp = () => {
     setTodoList(filteredTodo);
   };
 
-  const filterHandler = (status) => {
-    switch (status) {
-      case "all":
-        setFilterTodoList(todoList);
-        break;
-      case "completed":
-        setFilterTodoList(todoList.filter((todo) => todo.isCompleted));
-        break;
-      case "uncompleted":
-        setFilterTodoList(todoList.filter((todo) => !todo.isCompleted));
-        break;
-      default:
-        setFilterTodoList(todoList);
-        break;
-    }
-  };
-  const filterChangeHandler = (e) => {
-    setStatus(e.target.value);
-  };
+  // const filterHandler = (status) => {
+  //   switch (status) {
+  //     case "all":
+  //       setFilterTodoList(todoList);
+  //       break;
+  //     case "completed":
+  //       setFilterTodoList(todoList.filter((todo) => todo.isCompleted));
+  //       break;
+  //     case "uncompleted":
+  //       setFilterTodoList(todoList.filter((todo) => !todo.isCompleted));
+  //       break;
+  //     default:
+  //       setFilterTodoList(todoList);
+  //       break;
+  //   }
+  // };
+  // const filterChangeHandler = (e) => {
+  //   setStatus(e.target.value);
+  // };
 
   useEffect(() => {
     const saveTodoList = JSON.parse(localStorage.getItem("todoList"));
@@ -102,11 +102,11 @@ const TodoApp = () => {
           submitHandler={submitHandler}
           todoInput={todoInput}
           edit={edit}
-          status={status}
-          filterChangeHandler={filterChangeHandler}
+          // status={status}
+          // filterChangeHandler={filterChangeHandler}
         />
         <TodoList
-          todoList={filterTodoList}
+          todoList={todoList}
           toggleTodo={toggleTodo}
           onDelete={onDelete}
           setEdit={setEdit}

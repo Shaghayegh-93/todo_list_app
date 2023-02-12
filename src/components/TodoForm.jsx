@@ -5,8 +5,8 @@ const TodoForm = ({
   submitHandler,
   todoInput,
   edit,
-  status,
-  filterChangeHandler,
+  // status,
+  // filterChangeHandler,
 }) => {
   return (
     <form onSubmit={submitHandler} className="">
@@ -29,7 +29,7 @@ const TodoForm = ({
           >
             {edit.id ? "Edit" : " Add task"}
           </button>
-          <select
+          {/* <select
             className="hidden md:inline-block bg-green-700 p-2 rounded-md  ml-4  text-white w-auto outline-none "
             name=""
             id=""
@@ -39,7 +39,7 @@ const TodoForm = ({
             <option value="all ">All</option>
             <option value="completed">Completed</option>
             <option value="uncompleted">Uncompleted</option>
-          </select>
+          </select> */}
         </div>
       </div>
     </form>
