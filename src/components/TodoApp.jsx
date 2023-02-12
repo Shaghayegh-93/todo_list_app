@@ -16,7 +16,7 @@ const TodoApp = () => {
 
   useEffect(() => {
     filterHandler(status);
-  }, [status]);
+  }, [todoList, status]);
 
   const changeHandler = (e) => {
     setTodoInput(e.target.value);
@@ -91,7 +91,7 @@ const TodoApp = () => {
 
   useEffect(() => {
     localStorage.setItem("todoList", JSON.stringify(todoList));
-  }, [filterTodoList]);
+  }, [todoList]);
 
   return (
     <div className=" bg-slate-800 h-screen  w-full">
