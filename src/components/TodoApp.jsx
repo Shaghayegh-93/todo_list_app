@@ -8,8 +8,8 @@ const TodoApp = () => {
   const [todoList, setTodoList] = useState([]);
   const [todoInput, setTodoInput] = useState("");
   const [edit, setEdit] = useState({ id: null, text: "", isCompleted: false });
-  const [status, setStatus] = useState("all");
-  const [filterTodoList, setFilterTodoList] = useState([]);
+  // const [status, setStatus] = useState("all");
+  // const [filterTodoList, setFilterTodoList] = useState([]);
   useEffect(() => {
     edit.id ? setTodoInput(edit.text) : setTodoInput("");
   }, [edit]);
@@ -84,14 +84,14 @@ const TodoApp = () => {
   //   setStatus(e.target.value);
   // };
 
-  useEffect(() => {
-    const saveTodoList = JSON.parse(localStorage.getItem("todoList"));
-    if (saveTodoList.length !== 0) setTodoList(saveTodoList);
-  }, []);
+  // useEffect(() => {
+  //   const saveTodoList = JSON.parse(localStorage.getItem("todoList"));
+  //   if (saveTodoList.length !== 0) setTodoList(saveTodoList);
+  // }, []);
 
-  useEffect(() => {
-    localStorage.setItem("todoList", JSON.stringify(todoList));
-  }, [todoList]);
+  // useEffect(() => {
+  //   localStorage.setItem("todoList", JSON.stringify(todoList));
+  // }, [todoList]);
 
   return (
     <div className=" bg-slate-800 h-screen  w-full">
