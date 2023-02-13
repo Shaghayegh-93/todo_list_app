@@ -30,7 +30,7 @@ const TodoForm = ({
             {edit.id ? "Edit" : " Add task"}
           </button>
           <select
-            className="hidden md:inline-block bg-green-700 p-2 rounded-md  ml-4  text-white w-auto outline-none "
+            className="hidden md:inline-block bg-green-700 p-2 rounded-md  ml-4  text-white w-auto outline-none cursor-pointer"
             name=""
             id=""
             value={status}

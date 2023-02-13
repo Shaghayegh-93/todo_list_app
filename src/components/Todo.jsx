@@ -16,7 +16,7 @@ const Todo = ({ todo, index, onToggleTodo, onDelete, onEdit }) => {
           </span>
           <p
             className={`text-white ${
-              todo.isCompleted ? "text-white line-through" : "text-white"
+              todo.isCompleted ? "text-white line-through cursor-pointer" : "text-white"
             }`}
           >
             {todo.text}
@@ -32,7 +32,7 @@ const Todo = ({ todo, index, onToggleTodo, onDelete, onEdit }) => {
             className="mr-1 ml-2 cursor-pointer"
             onClick={onEdit}
           />
-          <RiDeleteBin5Fill className="text-red-600 " onClick={onDelete} />
+          <RiDeleteBin5Fill className="text-red-600 cursor-pointer " onClick={onDelete} />
         </div>
       </div>
     </div>
