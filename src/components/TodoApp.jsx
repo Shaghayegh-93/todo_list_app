@@ -8,15 +8,15 @@ const TodoApp = () => {
   const [todoList, setTodoList] = useState([]);
   const [todoInput, setTodoInput] = useState("");
   const [edit, setEdit] = useState({ id: null, text: "", isCompleted: false });
-  // const [status, setStatus] = useState("all");
-  // const [filterTodoList, setFilterTodoList] = useState([]);
+  const [status, setStatus] = useState("all");
+  const [filterTodoList, setFilterTodoList] = useState([]);
   useEffect(() => {
     edit.id ? setTodoInput(edit.text) : setTodoInput("");
   }, [edit]);
 
-  // useEffect(() => {
-  //   filterHandler(status);
-  // }, [todoList, status]);
+  useEffect(() => {
+    filterHandler(status);
+  }, [todoList, status]);
 
   const changeHandler = (e) => {
     setTodoInput(e.target.value);
@@ -64,34 +64,34 @@ const TodoApp = () => {
     setTodoList(filteredTodo);
   };
 
-  // const filterHandler = (status) => {
-  //   switch (status) {
-  //     case "all":
-  //       setFilterTodoList(todoList);
-  //       break;
-  //     case "completed":
-  //       setFilterTodoList(todoList.filter((todo) => todo.isCompleted));
-  //       break;
-  //     case "uncompleted":
-  //       setFilterTodoList(todoList.filter((todo) => !todo.isCompleted));
-  //       break;
-  //     default:
-  //       setFilterTodoList(todoList);
-  //       break;
-  //   }
-  // };
-  // const filterChangeHandler = (e) => {
-  //   setStatus(e.target.value);
-  // };
+  const filterHandler = (status) => {
+    switch (status) {
+      case "all":
+        setFilterTodoList(todoList);
+        break;
+      case "completed":
+        setFilterTodoList(todoList.filter((todo) => todo.isCompleted));
+        break;
+      case "uncompleted":
+        setFilterTodoList(todoList.filter((todo) => !todo.isCompleted));
+        break;
+      default:
+        setFilterTodoList(todoList);
+        break;
+    }
+  };
+  const filterChangeHandler = (e) => {
+    setStatus(e.target.value);
+  };
 
-  // useEffect(() => {
-  //   const saveTodoList = JSON.parse(localStorage.getItem("todoList"));
-  //   if (saveTodoList.length !== 0) setTodoList(saveTodoList);
-  // }, []);
+  useEffect(() => {
+    const saveTodoList = JSON.parse(localStorage.getItem("todoList"));
+    if (saveTodoList.length !== 0) setTodoList(saveTodoList);
+  }, []);
 
-  // useEffect(() => {
-  //   localStorage.setItem("todoList", JSON.stringify(todoList));
-  // }, [todoList]);
+  useEffect(() => {
+    localStorage.setItem("todoList", JSON.stringify(filterTodoList));
+  }, [filterTodoList]);
 
   return (
     <div className=" bg-slate-800 h-screen  w-full">
@@ -102,11 +102,11 @@ const TodoApp = () => {
           submitHandler={submitHandler}
           todoInput={todoInput}
           edit={edit}
-          // status={status}
-          // filterChangeHandler={filterChangeHandler}
+          status={status}
+          filterChangeHandler={filterChangeHandler}
         />
         <TodoList
-          todoList={todoList}
+          todoList={filterTodoList}
           toggleTodo={toggleTodo}
           onDelete={onDelete}
           setEdit={setEdit}
