@@ -84,14 +84,14 @@ const TodoApp = () => {
     setStatus(e.target.value);
   };
 
-  useEffect(() => {
-    const saveTodoList = JSON.parse(localStorage.getItem("todoList"));
-    if (saveTodoList.length !== 0) setTodoList(saveTodoList);
-  }, []);
+  // useEffect(() => {
+  //   const saveTodoList = JSON.parse(localStorage.getItem("todoList"));
+  //   if (saveTodoList.length !== 0) setTodoList(saveTodoList);
+  // }, []);
 
-  useEffect(() => {
-    localStorage.setItem("todoList", JSON.stringify(filterTodoList));
-  }, [filterTodoList]);
+  // useEffect(() => {
+  //   localStorage.setItem("todoList", JSON.stringify(filterTodoList));
+  // }, [filterTodoList]);
 
   return (
     <div className=" bg-slate-800 h-screen  w-full">
