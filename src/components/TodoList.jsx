@@ -3,7 +3,7 @@ import Todo from "./Todo";
 
 const TodoList = ({ todoList, toggleTodo, onDelete, setEdit }) => {
   const renderTodo = () => {
-    if (todoList.length === 0) return <div className="text-white">No tasks</div>;
+    if (todoList.length === 0) return <div className="text-white">No Task</div>;
     return (
       <div className="task-list">
         {todoList.map((todo, index) => {

@@ -13,7 +13,7 @@ const TodoForm = ({
       <div className=" grid grid-cols-3  md:w-[90%]  m-auto  mb-4 md:grid-cols-5">
         <input
           type="text"
-          placeholder="Add Todo..."
+          placeholder="Add Todo ..."
           className=" outline-none p-2 rounded-md col-span-2 md:col-span-3 "
           value={todoInput}
           onChange={changeHandler}
@@ -27,7 +27,7 @@ const TodoForm = ({
                 : "bg-green-700 p-2 rounded-md w-full  ml-4  text-white "
             }
           >
-            {edit.id ? "Edit" : " Add task"}
+            {edit.id ? "Edit" : " Add Task"}
           </button>
           <select
             className="hidden md:inline-block bg-green-700 p-2 rounded-md  ml-4  text-white w-auto outline-none cursor-pointer"
